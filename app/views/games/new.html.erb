@@ -1,0 +1,16 @@
+<h2>NEW GAME</h2>
+
+<% @letters.each do |letter|  %>
+<%= letter %>
+<% end %>
+
+<p> <%= @score %> </p>
+
+<form action="score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <%= hidden_field_tag :start, @start %>
+  <%= hidden_field_tag :score, @score %>
+  <input type="text" name="guess">
+  <input type="submit" name="submit">
+</form>
